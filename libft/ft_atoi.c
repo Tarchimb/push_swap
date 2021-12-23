@@ -6,32 +6,33 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 09:36:40 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/21 08:28:29 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:12:26 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static void ft_check_c(char c, t_list **pile_a)
+static void	ft_check_c(char c, t_list **stack_a)
 {
 	if (c < '0' || c > '9')
 	{
 		ft_putstr_fd("Error", 2);
-		ft_lstclear(pile_a, free);
+		ft_lstclear(stack_a, free);
 		exit(0);
 	}
 }
 
-int ft_atoi(char *str, t_list **pile_a)
+int	ft_atoi(char *str, t_list **stack_a)
 {
-	int negative;
-	int r;
-	int i;
+	int	negative;
+	int	r;
+	int	i;
 
 	i = 0;
 	negative = 0;
 	r = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
+		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
@@ -39,7 +40,7 @@ int ft_atoi(char *str, t_list **pile_a)
 			negative++;
 		i++;
 	}
-	ft_check_c(str[i], pile_a);
+	ft_check_c(str[i], stack_a);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		r = r * 10 + str[i] - '0';

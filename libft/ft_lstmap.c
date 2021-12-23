@@ -6,16 +6,16 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 17:23:33 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/21 08:28:24 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:00:42 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-t_list *ft_lstmap(t_list *lst, int (*f)(int), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(void *))
 {
-	t_list *new;
-	t_list *temp;
+	t_list	*new;
+	t_list	*temp;
 
 	if (!lst)
 		return (NULL);

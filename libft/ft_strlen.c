@@ -6,15 +6,15 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:16:40 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/09 09:25:18 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:03:56 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!s)

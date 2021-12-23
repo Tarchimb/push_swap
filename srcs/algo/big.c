@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   big.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 17:01:43 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/23 11:04:24 by tarchimb         ###   ########.fr       */
+/*   Created: 2021/12/21 11:23:30 by tarchimb          #+#    #+#             */
+/*   Updated: 2021/12/23 12:01:12 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <push_swap.h>
 
-char	*ft_strrchr(const char *s, int c)
+void	radix(t_list **stack_a, t_list **stack_b)
 {
 	int	i;
+	int	size;
+	int	size_tmp;
+	int	count;
 
+	size = ft_lstsize(*stack_a);
 	i = 0;
-	while (s[i])
-		i++;
-	while (i >= 0)
+	size_tmp = size;
+	count = 0;
+	while (ft_check_sort(stack_a) != 0)
 	{
-		if (s[i] == (char)c)
-			return ((char *)s + i);
-		i--;
+		while (size--)
+		{
+			if ((((*stack_a)->index >> i) & 1) == 1)
+				ft_ra(stack_a);
+			else
+				ft_pb(stack_b, stack_a);
+		}
+		while (ft_lstsize(*stack_b) != 0)
+			ft_pa(stack_a, stack_b);
+		size = size_tmp;
+		i++;
 	}
-	return (NULL);
 }

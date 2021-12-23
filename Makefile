@@ -6,7 +6,7 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 08:55:58 by tarchimb          #+#    #+#              #
-#    Updated: 2021/12/21 11:30:09 by tarchimb         ###   ########.fr        #
+#    Updated: 2021/12/23 12:07:27 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,16 +14,18 @@ SRCS		=	srcs/operations/ft_push.c		\
 				srcs/operations/ft_swap.c		\
 				srcs/operations/ft_rotate.c		\
 				srcs/operations/ft_rev_rotate.c	\
-				srcs/parsing/ft_create_pile.c	\
+				srcs/parsing/ft_create_stack.c	\
 				srcs/parsing/ft_get_index.c		\
-				srcs/algo.c						\
+				srcs/algo/little.c				\
+				srcs/algo/medium.c				\
+				srcs/algo/big.c					\
+				srcs/algo/ft_control.c			\
 				push_swap.c						\
-				srcs/algo2.c					\
 
 OBJS		=	${SRCS:.c=.o}
 
 INCLUDES	=	includes/push_swap.h			\
-				libft//includes/libft.h					\
+				libft/includes/libft.h			\
 
 CC			= 	gcc
 

@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarchimb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 08:24:15 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/11/09 08:38:27 by tarchimb         ###   ########lyon.fr   */
+/*   Updated: 2021/12/23 11:04:05 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char *str;
-	unsigned int i;
+	char			*str;
+	unsigned int	i;
 
 	i = 0;
 	if (!s)

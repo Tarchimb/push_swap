@@ -6,15 +6,15 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 08:51:47 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/09 09:24:18 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/23 10:57:52 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int ft_check_str(char *str, int *i)
+int	ft_check_str(char *str, int *i)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while ((str[*i] >= 9 && str[*i] <= 13) || (str[*i] == 32))
@@ -35,9 +35,9 @@ int ft_check_str(char *str, int *i)
 	return (0);
 }
 
-int ft_strstr(char *str, char to_find, int *j)
+int	ft_strstr(char *str, char to_find, int *j)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -50,10 +50,10 @@ int ft_strstr(char *str, char to_find, int *j)
 	return (0);
 }
 
-int ft_check_base(char *str)
+int	ft_check_base(char *str)
 {
-	int i;
-	int o;
+	int	i;
+	int	o;
 
 	i = 0;
 	while (str[i])
@@ -65,16 +65,18 @@ int ft_check_base(char *str)
 				return (1);
 			o++;
 		}
-		if (str[i] == '+' || str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r' || str[i] == '-')
+		if (str[i] == '+' || str[i] == ' ' || str[i] == '\n'
+			|| str[i] == '\t' || str[i] == '\v'
+			|| str[i] == '\f' || str[i] == '\r' || str[i] == '-')
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-int ft_after_base(char *base, char *str, int *i)
+int	ft_after_base(char *base, char *str, int *i)
 {
-	int o;
+	int	o;
 
 	o = 0;
 	while (base[o])
@@ -88,11 +90,11 @@ int ft_after_base(char *base, char *str, int *i)
 	return (0);
 }
 
-int ft_atoi_base(char *str, char *base)
+int	ft_atoi_base(char *str, char *base)
 {
-	int i;
-	int r;
-	int j;
+	int	i;
+	int	r;
+	int	j;
 
 	j = 0;
 	i = 0;

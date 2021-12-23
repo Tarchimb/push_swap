@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarchimb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:52:57 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/11/11 09:34:57 by tarchimb         ###   ########lyon.fr   */
+/*   Updated: 2021/12/23 11:03:07 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static int ft_count_c(char c, const char *s)
+static int	ft_count_c(char c, const char *s)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -37,18 +37,18 @@ static int ft_count_c(char c, const char *s)
 	return (j + 1);
 }
 
-static int ft_check_c(char c, char s)
+static int	ft_check_c(char c, char s)
 {
 	if (c == s)
 		return (1);
 	return (0);
 }
 
-static char *ft_strdupp(char const *s, char c, int *i)
+static char	*ft_strdupp(char const *s, char c, int *i)
 {
-	char *str;
-	int size;
-	int j;
+	char	*str;
+	int		size;
+	int		j;
 
 	str = 0;
 	size = 0;
@@ -72,9 +72,9 @@ static char *ft_strdupp(char const *s, char c, int *i)
 	return (str);
 }
 
-static void *ft_check_null(char **str)
+static void	*ft_check_null(char **str)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while (str[j])
@@ -86,11 +86,11 @@ static void *ft_check_null(char **str)
 	return (NULL);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	int i;
-	char **str;
-	int j;
+	int		i;
+	char	**str;
+	int		j;
 
 	j = 0;
 	i = 0;

@@ -6,13 +6,13 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 11:42:25 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/01 11:15:47 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:06:04 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static char *ft_free(char *buf, char *save)
+static char	*ft_free(char *buf, char *save)
 {
 	free(buf);
 	if (save != NULL)
@@ -20,11 +20,11 @@ static char *ft_free(char *buf, char *save)
 	return (NULL);
 }
 
-char *ft_save(char *save, int fd)
+char	*ft_save(char *save, int fd)
 {
-	char *buf;
-	int iread;
-	char *tmp;
+	char	*buf;
+	int		iread;
+	char	*tmp;
 
 	iread = 1;
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
@@ -46,11 +46,11 @@ char *ft_save(char *save, int fd)
 	return (save);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char *save[OPEN_MAX];
-	char *dest;
-	char *tmp;
+	static char	*save[OPEN_MAX];
+	char		*dest;
+	char		*tmp;
 
 	dest = NULL;
 	if (fd < 0 || fd > OPEN_MAX)
@@ -61,7 +61,7 @@ char *get_next_line(int fd)
 	dest = ft_substr_gnl(save[fd], 0, ft_strchr_len(save[fd], '\n'));
 	tmp = save[fd];
 	save[fd] = ft_substr_gnl(save[fd], ft_strchr_len(save[fd], '\n'),
-							 ft_strlen(save[fd]) - ft_strchr_len(save[fd], '\n'));
+			ft_strlen(save[fd]) - ft_strchr_len(save[fd], '\n'));
 	if (save[fd] && !*save[fd])
 	{
 		free(save[fd]);

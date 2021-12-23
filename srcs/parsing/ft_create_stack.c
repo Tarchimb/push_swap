@@ -1,12 +1,12 @@
 /* ************************************************************************** */
-/*		                                                                    */
+/*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_pile.c                                   :+:      :+:    :+:   */
+/*   ft_create_stack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/21 07:59:44 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/21 15:34:34 by tarchimb         ###   ########.fr       */
+/*   Created: 2021/12/23 11:13:59 by tarchimb          #+#    #+#             */
+/*   Updated: 2021/12/23 11:14:00 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_fill_stack(t_list **stack_a, char **argv, int i, int j)
 	return (1);
 }
 
-int	ft_create_pile(int argc, char **argv, t_list **stack_a)
+int	ft_create_stack(int argc, char **argv, t_list **stack_a)
 {
 	int	i;
 	int	j;

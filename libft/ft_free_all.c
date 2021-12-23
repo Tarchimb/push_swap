@@ -6,15 +6,15 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 09:11:01 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/21 08:02:30 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/23 10:58:07 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void *ft_free_all(void **tab)
+void	*ft_free_all(void **tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!tab)

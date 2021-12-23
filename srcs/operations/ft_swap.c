@@ -12,35 +12,35 @@
 
 #include <push_swap.h>
 
-void	ft_sa(t_list **pile_a)
+void	ft_sa(t_list **stack_a)
 {
 	t_list	*tmp;
 
-	tmp = (*pile_a)->next;
-	(*pile_a)->next = (*pile_a)->next->next;
-	ft_lstadd_front(pile_a, tmp);
+	tmp = (*stack_a)->next;
+	(*stack_a)->next = (*stack_a)->next->next;
+	ft_lstadd_front(stack_a, tmp);
 	ft_putstr_fd("sa\n", 1);
 }
 
-void	ft_sb(t_list **pile_b)
+void	ft_sb(t_list **stack_b)
 {
 	t_list	*tmp;
 
-	tmp = (*pile_b)->next;
-	(*pile_b)->next = (*pile_b)->next->next;
-	ft_lstadd_front(pile_b, tmp);
+	tmp = (*stack_b)->next;
+	(*stack_b)->next = (*stack_b)->next->next;
+	ft_lstadd_front(stack_b, tmp);
 	ft_putstr_fd("sb\n", 1);
 }
 
-void	ft_ss(t_list **pile_a, t_list **pile_b)
+void	ft_ss(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 
-	tmp = (*pile_a)->next;
-	(*pile_a)->next = (*pile_a)->next->next;
-	ft_lstadd_front(pile_a, tmp);
-	tmp = (*pile_b)->next;
-	(*pile_b)->next = (*pile_b)->next->next;
-	ft_lstadd_front(pile_b, tmp);
+	tmp = (*stack_a)->next;
+	(*stack_a)->next = (*stack_a)->next->next;
+	ft_lstadd_front(stack_a, tmp);
+	tmp = (*stack_b)->next;
+	(*stack_b)->next = (*stack_b)->next->next;
+	ft_lstadd_front(stack_b, tmp);
 	ft_putstr_fd("ss\n", 1);
 }

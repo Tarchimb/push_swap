@@ -6,15 +6,15 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 07:43:35 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/01 09:38:54 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:05:12 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int ft_strchr_len(const char *s, int c)
+int	ft_strchr_len(const char *s, int c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!s)
@@ -30,10 +30,10 @@ int ft_strchr_len(const char *s, int c)
 	return (0);
 }
 
-char *ft_substr_gnl(char *s, unsigned int start, size_t len)
+char	*ft_substr_gnl(char *s, unsigned int start, size_t len)
 {
-	char *str;
-	unsigned int i;
+	char			*str;
+	unsigned int	i;
 
 	i = 0;
 	str = 0;
@@ -55,11 +55,11 @@ char *ft_substr_gnl(char *s, unsigned int start, size_t len)
 	return (str);
 }
 
-char *ft_strjoin_gnl(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
-	char *str;
-	int i;
-	int j;
+	char	*str;
+	int		i;
+	int		j;
 
 	str = 0;
 	j = 0;

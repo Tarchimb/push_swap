@@ -6,15 +6,15 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 08:26:32 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/21 08:01:07 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:02:23 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!s || fd == -1)
