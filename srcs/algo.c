@@ -1,16 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_small_sort.c                                    :+:      :+:    :+:   */
+/*   ft_medium_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/21 08:00:33 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/21 08:00:34 by tarchimb         ###   ########.fr       */
+/*   Created: 2021/12/21 11:23:30 by tarchimb          #+#    #+#             */
+/*   Updated: 2021/12/21 15:46:42 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include <push_swap.h>
+
+void	radix(t_list **stack_a, t_list **stack_b)
+{
+	int	i;
+	int	size;
+	int	size_tmp;
+	int	count;
+
+	size = ft_lstsize(*stack_a);
+	i = 0;
+	size_tmp = size;
+	count = 0;
+	while (ft_check_sort(stack_a) != 0)
+	{
+		while (size--)
+		{
+			if ((((*stack_a)->index >> i) & 1) == 1)
+				ft_ra(stack_a);
+			else
+				ft_pb(stack_b, stack_a);
+		}
+		while (ft_lstsize(*stack_b) != 0)
+			ft_pa(stack_a, stack_b);
+		size = size_tmp;
+		i++;
+	}
+}
+
 
 int	ft_small_sort(t_list **pile_a)
 {
@@ -30,7 +58,8 @@ int	ft_small_sort(t_list **pile_a)
 	return (0);
 }
 
-int	ft_get_low_value(t_list **pile, size_t *low_value, t_list *tmp, int i)
+static int	ft_get_low_value(t_list **pile, size_t *low_value,
+	t_list *tmp, int i)
 {
 	*low_value = (size_t)tmp->content;
 	while (tmp)
@@ -57,7 +86,8 @@ int	ft_get_low_value(t_list **pile, size_t *low_value, t_list *tmp, int i)
 	return (i);
 }
 
-int	ft_get_high_value(t_list **pile, size_t *high_value, t_list *tmp, int i)
+static int	ft_get_high_value(t_list **pile, size_t *high_value,
+	t_list *tmp, int i)
 {
 	*high_value = (size_t)tmp->content;
 	while (tmp)

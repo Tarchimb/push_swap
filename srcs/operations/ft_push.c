@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include <push_swap.h>
 
 void	ft_pa(t_list **pile_a, t_list **pile_b)
 {
@@ -33,12 +33,20 @@ void	ft_pa(t_list **pile_a, t_list **pile_b)
 void	ft_pb(t_list **pile_b, t_list **pile_a)
 {
 	t_list	*tmp;
-	t_list	*tmp1;
 
-	tmp1 = (*pile_a)->last;
-	tmp = (*pile_a);
-	(*pile_a) = (*pile_a)->next;
-	tmp1->next = (*pile_a);
+	tmp = NULL;
+	if (*pile_a)
+		tmp = (*pile_a);
+	else
+		return ;
+	if ((*pile_a)->next)
+		(*pile_a) = (*pile_a)->next;
+	else
+		(*pile_a) = NULL;
+	if (*pile_b)
+		tmp->next = (*pile_b);
+	else
+		tmp->next = NULL;
 	ft_lstadd_front(pile_b, tmp);
 	ft_putstr_fd("pb\n", 1);
 }

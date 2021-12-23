@@ -1,5 +1,5 @@
 /* ************************************************************************** */
-/*                                                                            */
+/*		                                                                    */
 /*                                                        :::      ::::::::   */
 /*   ft_create_pile.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
@@ -10,35 +10,48 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include <push_swap.h>
 
-int	ft_create_pile(int argc, char **argv, t_list **alst)
+static int	ft_fill_stack(t_list **stack_a, char **argv, int i, int j)
 {
-	int		i;
-	int		j;
 	t_list	*dest;
-	t_list	*tmp;
+
+	dest = NULL;
+	while (argv[++i])
+	{
+		dest = ft_lstnew(ft_atoi(argv[j++], stack_a));
+		dest->index = 0;
+		if (!dest)
+			return (ft_lstclear(stack_a, free));
+		ft_lstadd_back(stack_a, dest);
+	}
+	return (1);
+}
+
+int	ft_create_pile(int argc, char **argv, t_list **stack_a)
+{
+	int	i;
+	int	j;
+	int	count;
 
 	i = -1;
 	j = 1;
-	dest = NULL;
-	tmp = NULL;
+	count = 0;
 	if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
 		j = 0;
+		count++;
 	}
 	else
 		i = 0;
-	while (argv[++i])
+	if (!ft_fill_stack(stack_a, argv, i, j))
 	{
-		dest = ft_lstnew((void *)(size_t)ft_atoi(argv[j++], alst));
-		dest->index = 0;
-		dest->last = tmp;
-		tmp = dest;
-		if (!dest)
-			return (ft_lstclear(alst, free));
-		ft_lstadd_back(alst, dest);
+		if (count)
+			ft_free_all((void **)argv);
+		return (0);
 	}
+	if (count)
+		ft_free_all((void **)argv);
 	return (1);
 }

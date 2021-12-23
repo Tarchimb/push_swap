@@ -1,32 +1,12 @@
-/* ************************************************************************** */
-/*	                                                                        */
-/*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/10 08:55:09 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/21 07:53:02 by tarchimb         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "includes/push_swap.h"
-
-void	ft_print_pil(t_list **pile)
-{
-	while (*pile)
-	{
-		// printf("%zd\n", (size_t)(*pile)->content);
-		printf("%d\n", (*pile)->index);
-		*pile = (*pile)->next;
-	}
-}
 
 int	ft_check_sort(t_list **pile_a)
 {
 	int		i;
 	t_list	*tmp;
 
+	if (!*pile_a)
+		return (1);
 	i = 0;
 	tmp = *pile_a;
 	while (tmp->next)
@@ -43,22 +23,18 @@ int	ft_call_algorithm(t_list **pile_a, t_list **pile_b)
 {
 	int	size;
 
+	size = ft_lstsize(*pile_b);
 	size = ft_lstsize(*pile_a);
-	(void)pile_b;
 	if (ft_check_sort(pile_a) == 0)
 		return (0);
 	if (size <= 3)
-	{
 		ft_small_sort(pile_a);
-		return (0);
-	}
 	else if (size <= 5)
 		ft_medium_sort(pile_a, pile_b);
-
-	else if (size <= 100)
-		ft_big_sort(pile_a, pile_b);
-	// else
-	//	 ft_huge_sort(pile_a, pile_b);
+	else if (size <= 150)
+		ft_medium_algo(pile_a, pile_b);
+	else
+	 	radix(pile_a, pile_b);
 	return (0);
 }
 
@@ -88,30 +64,40 @@ int	ft_check_pile(t_list **pile_a)
 	return (1);
 }
 
+
 int	main(int argc, char **argv)
 {
 	t_list	*pile_a;
 	t_list	*pile_b;
-	int	d;
-
-	d = 8;
-	// printf("%d\n", 12&23);
 
 	if (argc < 2)
 		return (0);
 	pile_a = NULL;
 	pile_b = NULL;
-	ft_create_pile(argc, argv, &pile_a);
+	if (ft_create_pile(argc, argv, &pile_a) == 0)
+		return (0);
 	if (!ft_check_pile(&pile_a))
 	{
-		ft_putstr_fd("Error", 2);
+		ft_putstr_fd("Error\n", 2);
 		return (ft_lstclear(&pile_a, free));
 	}
 	ft_get_index_position(&pile_a);
 	ft_call_algorithm(&pile_a, &pile_b);
-	printf("==PILE A==\n\n");
+	//ft_print_pil(&pile_a);
+	ft_lstclear(&pile_a, free);
 	ft_print_pil(&pile_a);
-	printf("==PILE B==\n\n");
-	ft_print_pil(&pile_b);
 	return (0);
+}
+
+void	ft_print_pil(t_list **pile)
+{
+	t_list	*tmp;
+
+	tmp = *pile;
+	while (tmp)
+	{
+		printf("content-->%d,index-->%d \n",
+			tmp->content, tmp->index);
+		tmp = tmp->next;
+	}
 }

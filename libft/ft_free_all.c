@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	*ft_free_all(void **tab)
+void *ft_free_all(void **tab)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	if (!tab)

@@ -10,30 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-int	ft_strchr_len(const char *s, int c)
+int ft_strchr_len(const char *s, int c)
 {
-	int		i;
+	int i;
 
 	i = 0;
 	if (!s)
 		return (0);
 	while (s[i])
 	{
-		if (s[i] == (unsigned char) c || s[i] == '\0')
+		if (s[i] == (unsigned char)c || s[i] == '\0')
 			return (i + 1);
 		i++;
 	}
-	if (s[i] == (unsigned char) c || s[i] == '\0')
+	if (s[i] == (unsigned char)c || s[i] == '\0')
 		return (i + 1);
 	return (0);
 }
 
-char	*ft_substr_gnl(char *s, unsigned int start, size_t len)
+char *ft_substr_gnl(char *s, unsigned int start, size_t len)
 {
-	char			*str;
-	unsigned int	i;
+	char *str;
+	unsigned int i;
 
 	i = 0;
 	str = 0;
@@ -55,11 +55,11 @@ char	*ft_substr_gnl(char *s, unsigned int start, size_t len)
 	return (str);
 }
 
-char	*ft_strjoin_gnl(char *s1, char *s2)
+char *ft_strjoin_gnl(char *s1, char *s2)
 {
-	char	*str;
-	int		i;
-	int		j;
+	char *str;
+	int i;
+	int j;
 
 	str = 0;
 	j = 0;

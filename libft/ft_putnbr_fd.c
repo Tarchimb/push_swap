@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	ft_putnbr_fd(int n, int fd)
+void ft_putnbr_fd(int n, int fd)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	if (n == -2147483648)
 	{
 		ft_putstr_fd("-2147483648", fd);
-		return ;
+		return;
 	}
 	if (n < 0)
 	{

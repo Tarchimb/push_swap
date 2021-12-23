@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+void ft_lstadd_front(t_list **alst, t_list *new)
 {
 	if (!alst || !new)
-		return ;
+		return;
 	if (*alst)
 		new->next = *alst;
 	else

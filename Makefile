@@ -15,51 +15,56 @@ SRCS		=	srcs/operations/ft_push.c		\
 				srcs/operations/ft_rotate.c		\
 				srcs/operations/ft_rev_rotate.c	\
 				srcs/parsing/ft_create_pile.c	\
-				srcs/algorithm/ft_small_sort.c	\
-				srcs/utils/ft_get_index.c		\
-				srcs/algorithm/ft_medium_sort.c	\
+				srcs/parsing/ft_get_index.c		\
+				srcs/algo.c						\
+				push_swap.c						\
+				srcs/algo2.c					\
 
 OBJS		=	${SRCS:.c=.o}
 
-INCLUDES	=	Includes/push_swap.h		\
-				libft/libft.h				\
-
-LIBINCLUDES	=	-IIncludes
+INCLUDES	=	includes/push_swap.h			\
+				libft//includes/libft.h					\
 
 CC			= 	gcc
 
-CFLAGS		= 	-Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS		= 	-Wall -Wextra -Werror
 
-NAME		=	./push_swap
+EXEC		=	push_swap
 
-LIBS 		= 	Libs/libft.a				\
+NAME		=	libpush_swap.a
+
+LIBS 		= 	libft/libft.a					\
+				libpush_swap.a					\
 
 
 RM			=	rm -f
 
-all:		${NAME}
+all:		libft ${EXEC}
 
 %.o:		%.c ${INCLUDES}
-			${CC} ${CFLAGS} ${LIBINCLUDES} -c $< -o $@
+			${CC} ${CFLAGS} -I ./includes -c $< -o $@
 
 
-lib:
-			make -C ./Libft
+libft:		${INCLUDES}
+			make -C ./libft
 
 
-$(NAME):	${OBJS} ${INCLUDES} lib
-			${CC} ${CFLAGS} ${LIBS} ${SRCS} push_swap.c -o ${NAME}
+$(EXEC):	push_swap.c ${LIBS}
+			${CC} ${CFLAGS} ${LIBS} push_swap.c -o ${EXEC}
+
+${NAME}:	${OBJS} ${INCLUDES}
+			ar rcs ${NAME} ${OBJS}
 
 
 clean:
-			@${RM} ${OBJS} ${OBJSBONUS}
+			${RM} ${OBJS}
 			make clean -C ./libft
 
 
 fclean:		clean
 			make fclean -C ./libft
-			@${RM} ${NAME}
+			${RM} ${NAME}
 
 re:			fclean all
 
-.PHONY: 	all clean fclean re
+.PHONY: 	all clean fclean re libft

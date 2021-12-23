@@ -27,7 +27,7 @@ SRCS		=	./ft_atoi.c ./ft_calloc.c ./ft_isalpha.c ./ft_isdigit.c \
 
 OBJS		=	${SRCS:.c=.o}
 
-INCLUDES	=	libft.h
+INCLUDES	=	./includes/libft.h
 
 CC			= gcc
 
@@ -40,19 +40,17 @@ RM			=	rm -f
 all:		${NAME}
 
 %.o:		%.c ${INCLUDES}
-			${CC} ${CFLAGS} -I ../Includes -c $< -o $@
+			${CC} ${CFLAGS} -I ./includes -c $< -o $@
 
 $(NAME):	${OBJS} ${INCLUDES}
 			ar rcs ${NAME} ${OBJS}
-			mv ${NAME} ../Libs/
 
 clean:
 			${RM} ${OBJS} ${OBJSBONUS}
 
 fclean:		clean
-			${RM} ../Libs/${NAME}
+			${RM} ${NAME}
 
 re:			fclean all
 
-
-.PHONY: 	all clean fclean re bonus
+.PHONY: 	all clean fclean re

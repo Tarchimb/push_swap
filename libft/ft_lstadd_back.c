@@ -10,16 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+void ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_list	*last;
+	t_list *last;
 
 	if (!new)
-		return ;
-	// if (!new->next)
-	// 	new->next = NULL;
+		return;
 	if (!*alst)
 		*alst = new;
 	else

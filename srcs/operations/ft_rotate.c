@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include <push_swap.h>
 
 void	ft_ra(t_list **pile_a)
 {
@@ -44,6 +44,8 @@ void	ft_rr(t_list **pile_a, t_list **pile_b)
 	(*pile_a) = (*pile_a)->next;
 	tmp->next = NULL;
 	ft_lstadd_back(pile_a, tmp);
+	if (!(*pile_b)->next)
+		return ;
 	tmp = (*pile_b);
 	(*pile_b) = (*pile_b)->next;
 	tmp->next = NULL;

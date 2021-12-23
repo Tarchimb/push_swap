@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-static void	ft_recursive(int nb, int *i, char *str)
+static void ft_recursive(int nb, int *i, char *str)
 {
 	if (nb == 0)
 	{
 		(str[*i] = 0 + '0');
 		*i += 1;
-		return ;
+		return;
 	}
 	if (nb < -9 || nb > 9)
 	{
@@ -31,12 +31,12 @@ static void	ft_recursive(int nb, int *i, char *str)
 	}
 	else
 	{
-		str[*i] = nb % 10 + '0' ;
+		str[*i] = nb % 10 + '0';
 		*i += 1;
 	}
 }
 
-static void	ft_putnbr(int nb, char *str, int *i)
+static void ft_putnbr(int nb, char *str, int *i)
 {
 	if (nb < 0)
 	{
@@ -46,11 +46,11 @@ static void	ft_putnbr(int nb, char *str, int *i)
 	ft_recursive(nb, i, str);
 }
 
-char	*ft_itoa(int n)
+char *ft_itoa(int n)
 {
-	char	*str;
-	int		i;
-	int		tmp;
+	char *str;
+	int i;
+	int tmp;
 
 	str = 0;
 	i = 0;

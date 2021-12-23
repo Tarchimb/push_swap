@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	*ft_calloc(size_t count, size_t size)
+void *ft_calloc(size_t count, size_t size)
 {
-	void	*str;
-	size_t	i;
+	void *str;
+	size_t i;
 
 	i = 0;
 	str = malloc(size * count);

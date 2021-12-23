@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-static void	ft_check_c(char c, t_list **pile_a)
+static void ft_check_c(char c, t_list **pile_a)
 {
 	if (c < '0' || c > '9')
 	{
@@ -22,17 +22,16 @@ static void	ft_check_c(char c, t_list **pile_a)
 	}
 }
 
-int	ft_atoi(char *str, t_list **pile_a)
+int ft_atoi(char *str, t_list **pile_a)
 {
-	int	negative;
-	int	r;
-	int	i;
+	int negative;
+	int r;
+	int i;
 
 	i = 0;
 	negative = 0;
 	r = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{

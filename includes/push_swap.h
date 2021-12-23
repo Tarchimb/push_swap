@@ -13,7 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
+# include "../libft/includes/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
 
@@ -33,6 +33,9 @@ int		ft_medium_sort(t_list **pile_a, t_list **pile_b);
 int		ft_small_sort(t_list **pile_a);
 int		ft_create_pile(int argc, char **argv, t_list **alst);
 int		ft_get_index_position(t_list **pile_a);
-void	ft_big_sort(t_list **pile_a, t_list **pile_b);
+void	radix(t_list **pile_a, t_list **pile_b);
+void	ft_print_pil(t_list **pile);
+int		ft_medium_algo(t_list **stack_a, t_list **stack_b);
+int		ft_checker(int	argc, char **argv);
 
 #endif
